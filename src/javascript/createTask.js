@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!response.ok) {
             const error = await response.json();
-            console.error("Erro no login: ", error);
-            alert("Erro ao fazer o login: " + error.error);
+            console.error("Erro ao criar a tarefa: ", error);
+            alert("Erro ao criar a tarefa: " + error.error);
             return;
         }
 
