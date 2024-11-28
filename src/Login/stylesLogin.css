@@ -46,22 +46,26 @@ body {
     font-size: 14px;
   }
   
-  .input-group input {
+/* Input de texto */
+.input-group input {
     width: 100%;
     padding: 10px;
+    margin: 0 auto;
     border: none;
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 14px;
     outline: none;
+    box-sizing: border-box; 
   }
+  
   
   .input-group input::placeholder {
     color: #ddd;
   }
   
-  /* Botão de login */
+  
   .login-button {
     width: 100%;
     padding: 10px;
