@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btSignUp = document.getElementById("btSignup");
     const userSignup = document.getElementById("userSignup");
+    const emailSignup = document.getElementById("emailSignup");
     const passwordSignup = document.getElementById("passwordSignup");
 
     btSignUp.onclick = async function () {
         const username = userSignup.value.trim();
+        const email = emailSignup.value.trim();
         const password = passwordSignup.value.trim();
 
-        if (!username || !password) {
+        if (!username || !email || !password) {
             alert("Todos os campos são obrigatórios.");
             return;
         }
@@ -23,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 body: JSON.stringify({
                     username: username,
+                    email: email,
                     password: password,
                 }),
             });
