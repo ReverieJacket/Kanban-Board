@@ -1,1 +1,3 @@
-Placeholder
+document.addEventListener("DOMContentLoaded", function () {
+    
+});
