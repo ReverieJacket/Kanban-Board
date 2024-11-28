@@ -1,4 +1,4 @@
-/* Estilo para o fundo gradiente */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -36,7 +36,6 @@ body {
     font-size: 24px;
   }
   
-  /* Input de texto */
   .input-group {
     margin-bottom: 15px;
   }
