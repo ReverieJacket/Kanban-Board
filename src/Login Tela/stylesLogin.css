@@ -82,4 +82,23 @@ body {
   .login-button:hover {
     background: linear-gradient(90deg, #1e90ff, #8a2be2);
   }
+
+  .register-button {
+    display: inline-block;
+    background-color: #6200EE; /* Roxo */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #3700B3; /* Roxo mais escuro */
+}
   
