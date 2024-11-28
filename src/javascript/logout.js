@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!response.ok) {
                 const error = await response.json();
-                console.error("Erro no logout:", error);
+                console.error("Erro no logout: ", error);
                 alert("Erro ao sair: " + error.error);
                 return;
             }
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem("userId");
             localStorage.removeItem("sessionToken");
         } catch (error) {
-            console.error("Erro de conexão ao deslogar usuário:", error);
+            console.error("Erro de conexão ao deslogar usuário: ", error);
             alert("Erro de conexão. Tente novamente.");
         }
     };
