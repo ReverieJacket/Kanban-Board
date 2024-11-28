@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem("userId");
             localStorage.removeItem("sessionToken");
         } catch (error) {
-            console.error("Erro de conexão ao deslogar usuário: ", error);
+            console.error("Ocorreu um erro no logout: ", error);
             alert("Erro de conexão. Tente novamente.");
         }
     };

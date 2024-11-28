@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("userId", userData.objectId);
         localStorage.setItem("sessionToken", userData.sessionToken);
         } catch (error) {
-            console.error("An error occurred: ", error);
+            console.error("Ocorreu um erro no login: ", error);
             alert("Erro de conexão. Tente novamente.");
         }
     }

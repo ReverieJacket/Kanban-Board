@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("userId", userData.objectId);
             localStorage.setItem("sessionToken", userData.sessionToken);
         } catch (error) {
-            console.error("Erro de conexão ao cadastrar usuário:", error);
+            console.error("Ocorreu um erro no cadastro: ", error);
             alert("Erro de conexão. Tente novamente.");
         }
     };
