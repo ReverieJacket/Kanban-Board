@@ -11,6 +11,15 @@
 <body> 
     <div class="header">    <!-- Área para inserir a opção de deslogar e outras funções. -->
         <h1>Kanban</h1>
+        <input type="text" id="userLogin" placeholder="Username">
+        <input type="password" id="passwordLogin" placeholder="Password">
+        <input type="text" id="userSignup" placeholder="Username">
+        <input type="email" id="emailSignup" placeholder="Email">
+        <input type="password" id="passwordSignup" placeholder="Password">
+        <button id="btLogin">Login</button>
+        <button id="btSignup">SignUp</button>
+        <button id="btLogout">Logout</button>
+        <button class="testButton">Create task</button>
     </div>
     <main class="kanban-board"> 
         <div class="board-column" id="to-do" data-column-id ="1" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
