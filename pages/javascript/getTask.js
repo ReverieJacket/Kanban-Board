@@ -1,22 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const url = "https://parseapi.back4app.com/classes/Task";
-    const headers = {
-      "X-Parse-Application-Id": "nTNAn75SWRXgRMkgwDuPLXPmQNwnElUqeUSJbMwk",
-      "X-Parse-REST-API-Key": "kW7x86ZmUXka8yN5fLfZkKPmFiVaIW9rG1fllVWW",
-      "Content-Type": "application/json",
-    };
+    const button = document.getElementById('fetch');
 
-    fetch(url, { headers })
-        .then((response) => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+    button.onclick = async function () {
+        const response = await fetch("https://parseapi.back4app.com/classes/Task", {
+            method: "GET",
+            headers: {
+                "X-Parse-Application-Id": "nTNAn75SWRXgRMkgwDuPLXPmQNwnElUqeUSJbMwk",
+                "X-Parse-REST-API-Key": "kW7x86ZmUXka8yN5fLfZkKPmFiVaIW9rG1fllVWW",
+            }
+        });
+
+        const data = await response.json();
     }
-        return response.json();
-    })
-    .then((data) => {
-        console.log("Response data:", data);
-    })
-    .catch((error) => {
-        console.error("Error fetching tasks:", error);
-    });
 });

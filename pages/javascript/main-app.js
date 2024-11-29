@@ -10,7 +10,6 @@ const $editTaskButton = document.getElementById('alter-task');
 const $taskId = document.getElementById('taskId');
 const $categoryId = document.getElementsByClassName('board-column');
 
-
 function toggleTaskCreator(isEditMode) {
     $taskCreator.style.display = "flex";
     $newTaskTitle.style.display = isEditMode ? "none" : "block";
@@ -83,21 +82,62 @@ async function generateTaskCards() {
 
  
 
-function createTaskCard() {
+async function createTaskCard() {
     const title = $taskTitle.value;
     const deadline = $taskDeadline.value;
     const errorMessage = document.getElementById('error-message');
+    var data;
     
     if (!title || !deadline) {
         errorMessage.style.display = "block";
         errorMessage.textContent = "Título e prazo são obrigatórios!";
         return; 
     }
-    
+
     errorMessage.style.display = "none";
 
+    try {
+        const response = await fetch("https://parseapi.back4app.com/classes/Task", {
+            method: "POST",
+            headers: {
+                "X-Parse-Application-Id": "nTNAn75SWRXgRMkgwDuPLXPmQNwnElUqeUSJbMwk",
+                "X-Parse-REST-API-Key": "kW7x86ZmUXka8yN5fLfZkKPmFiVaIW9rG1fllVWW",
+                "X-Parse-Session-Token": localStorage.getItem("sessionToken"),
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                Title: $taskTitle.value.trim(),
+                Description: $taskDescription.value.trim(),
+                DueBy: {
+                    "__type": "Date",
+                    "iso": $taskDeadline.value.trim()
+                },
+                Progress: parseInt($categoryId.value),
+                "Owner": {
+                    "__type": "Pointer",
+                    "className": "_User",
+                    "objectId": localStorage.getItem("userId")
+                    }
+                }),
+            });
+
+        if (!response.ok) {
+            const error = await response.json();
+            console.error("Erro ao criar a tarefa: ", error);
+            alert("Erro ao criar a tarefa: " + error.error);
+            return;
+        }
+
+        data = await response.json();
+        console.log("Tarefa criada com sucesso: ", data);
+
+        } catch (error) {
+            console.error("Ocorreu um erro na criação da tarefa: ", error);
+            alert("Erro de conexão. Tente novamente.");
+        }
+
     const newTask = {
-        id: crypto.randomUUID(),
+        id: data.objectId,
         title,
         description: $taskDescription.value,
         deadline,
