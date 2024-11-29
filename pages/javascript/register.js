@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const emailSignup = document.getElementById("email");
     const passwordSignup = document.getElementById("password");
 
+    function handleLogin() {
+        window.location.href = "./login.html";
+    }
+
     btSignUp.onclick = async function () {
         const username = userSignup.value.trim();
         const email = emailSignup.value.trim();
