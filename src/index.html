@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add" />
-    <script src="/src/javascript/login.js"></script>
-    <script src="/src/javascript/register.js"></script>
-    <script src="/src/javascript/logout.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="javascript/main-app.js" defer></script>
     <title>Quadro Kanban</title>
 </head>  <!---->
 <body> 
@@ -25,23 +22,23 @@
         <button class="testButton">Create task</button>
     </div>
     <main class="kanban-board"> 
-        <div class="board-column">
-            <div class="category-title" id="to-do">
+        <div class="board-column" id="to-do" data-column-id ="1" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="category-title">
                 <span>A fazer</span>
-                <button class="add-task">
+                <button class="add-task" onclick="openTaskCreator(1)">
                     <span class="material-symbols-outlined">add</span>
                 </button>
             </div>
-   
+            
             <div class="category-body">
                 
             </div>
         </div>
 
-        <div class="board-column">
-            <div class="category-title" id="in-progress">
+        <div class="board-column" id="in-progress" data-column-id ="2" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="category-title">
                 <span>Em progresso</span>
-                <button class="add-task">
+                <button class="add-task" onclick="openTaskCreator(2)">
                     <span class="material-symbols-outlined">add</span>
                 </button>
             </div>
@@ -50,10 +47,10 @@
             </div>
         </div>
         
-        <div class="board-column">
-            <div class="category-title" id="in-review">
+        <div class="board-column" id="in-review" data-column-id="3" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="category-title">
                 <span>Em revisão</span>
-                <button class="add-task">
+                <button class="add-task" onclick="openTaskCreator(3)">
                     <span class="material-symbols-outlined">add</span>
                 </button>
             </div>
@@ -62,17 +59,48 @@
             </div>
         </div>
 
-        <div class="board-column">
-            <div class="category-title" id="done">
+        <div class="board-column" id="done" data-column-id ="4" ondrop="dropHandler(event)" ondragover="dragoverHandler(event)">
+            <div class="category-title">
                 <span>Finalizado</span>
-                <button class="add-task">
+                <button class="add-task" onclick="openTaskCreator(4)">
                     <span class="material-symbols-outlined">add</span>
                 </button>
             </div>
             <div class="category-body">
 
+            </div>
+        </div>
+        <div id="task-creator">
+            <div class="task-creator-box">
+                <div class="title">
+                    <span id="newTaskTitle">Nova Tarefa</span>
+                    <span id="editTaskTitle">Editar Tarefa</span>
+                    <button id="task-creator-close" onclick="closeTaskCreator()">
+                        <span class="material-symbols-outlined">close</span>
+                    </button> 
+                </div>
+                <div class="task-info">
+                    <div id="error-message" class="error-message" style="color: red; display: none;"></div>
+                    <div class="task-info-field">
+                        <input type="hidden" id="taskId">
+                    </div>
+                    <div class="task-info-field" id="task-title">
+                        <label for="title">Título:</label>
+                        <input type="text" id="title" placeholder="Título da Tarefa" required>
+                    </div>
+                    <div class="task-info-field" id="task-description">
+                        <label for="description">Descrição</label>
+                        <textarea id="description" rows="3"></textarea>
+                      </div>
+                    <div class="task-info-field" id="task-deadline">
+                        <label for="deadline">Prazo</label>
+                        <input type="date" id="deadline" required>
+                    </div>
+                    <button id="save-task" onclick="createTaskCard()">Salvar Tarefa</button>
+                    <button id="alter-task" onclick="updateTaskCard()">Salvar Alterações</button>
+                </div>
             </div>
         </div>
     </main>
-</body>
+
 </html>
