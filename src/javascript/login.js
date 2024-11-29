@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btLogin = document.getElementById("btLogin");
-    const userLogin = document.getElementById("userLogin");
-    const passwordLogin = document.getElementById("passwordLogin");
+    const userLogin = document.getElementById("username");
+    const passwordLogin = document.getElementById("password");
 
     btLogin.onclick = async function () {
         const username = userLogin.value.trim();
@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem("userId", userData.objectId);
         localStorage.setItem("sessionToken", userData.sessionToken);
+        window.location.href = "./index.html";
         } catch (error) {
             console.error("Ocorreu um erro no login: ", error);
             alert("Erro de conexão. Tente novamente.");
