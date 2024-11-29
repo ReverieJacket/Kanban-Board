@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(145deg, #6a11cb 50%, #2575fc);
+    background: linear-gradient(135deg, #4b0082, #8a2be2, #1e90ff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,9 +62,10 @@ button {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background: linear-gradient(135deg, #6a11cb 10%, #2575fc);
+    background: linear-gradient(90deg, #8a2be2, #1e90ff);
     color: white;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease;
 }
