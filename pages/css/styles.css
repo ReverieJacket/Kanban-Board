@@ -41,6 +41,21 @@ body{
     padding: 30px 0;
 }
 
+.navbar .login-btn {
+    background-color: #4c8aff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbar .login-btn:hover {
+    background-color: #3676e3;
+}
+
 .board-column{
     width: 300px;
     height: 100%;
