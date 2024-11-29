@@ -74,7 +74,7 @@ button:hover {
     background: linear-gradient(135deg, #2575fc, #6a11cb);
 }
 
-  .register-button {
+  .login-button {
     display: inline-block;
     background-color: #6200EE; /* Roxo */
     color: white;
@@ -89,6 +89,6 @@ button:hover {
     transition: background-color 0.3s ease;
 }
 
-.register-button:hover {
+.login-button:hover {
     background-color: #3700B3; /* Roxo mais escuro */
 }
