@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const btSignUp = document.getElementById("btSignup");
-    const userSignup = document.getElementById("userSignup");
-    const emailSignup = document.getElementById("emailSignup");
-    const passwordSignup = document.getElementById("passwordSignup");
+    const userSignup = document.getElementById("username");
+    const emailSignup = document.getElementById("email");
+    const passwordSignup = document.getElementById("password");
 
     btSignUp.onclick = async function () {
         const username = userSignup.value.trim();
@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             localStorage.setItem("userId", userData.objectId);
             localStorage.setItem("sessionToken", userData.sessionToken);
+            window.location.href = "./index.html";
         } catch (error) {
             console.error("Ocorreu um erro no cadastro: ", error);
             alert("Erro de conexão. Tente novamente.");

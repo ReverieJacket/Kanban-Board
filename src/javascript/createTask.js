@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const btAddTask = document.getElementById("testButton");
-    const taskTitle = document.getElementById("taskTitle");
-    const taskDesc = document.getElementById("taskDesc");
-    const taskDueBy = document.getElementById("taskDueBy");
-    var taskProgress = document.getElementById("taskProgress");
+    const $taskTitle = document.getElementById('title');
+    const $taskDescription = document.getElementById('description');
+    const $taskDeadline = document.getElementById('deadline');
+    const $newTaskTitle = document.getElementById('newTaskTitle');
+    const $editTaskTitle = document.getElementById('editTaskTitle');
+    const $newTaskButton = document.getElementById('save-task');
+    const $categoryId = document.getElementsByClassName('board-column');
 
-    btAddTask.onclick = async function () {
-        const title = taskTitle.value.trim();
-        const description = taskDesc.value.trim();
-        const dueBy = taskDueBy.value.trim();
-        var progress = taskProgress.value.trim();
+    $newTaskButton.onclick = async function () {
+        const title = $taskTitle.value.trim();
+        const desc = $taskDescription.value.trim();
+        const dueBy = $taskDeadline.value.trim();
+        var progress = $categoryId;
 
-        if (!title || !description || !dueBy || !progress) {
+        if (!title || !desc || !dueBy || !progress) {
             alert("Todos os campos são obrigatórios.");
             return;
         }
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify({
                 Title: title,
-                Description: description,
+                Description: desc,
                 DueBy: {
                     "__type": "Date",
                     "iso": dueBy

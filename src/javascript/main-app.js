@@ -56,7 +56,8 @@ function resetColumns() {
     });
 }
 
-function generateTaskCards() {
+async function generateTaskCards() {
+
     resetColumns();
     taskList.forEach(task => {
         const columnBody = document.querySelector(`[data-column-id="${task.column}"] .category-body`);
@@ -104,6 +105,7 @@ function createTaskCard() {
     };
 
     taskList.push(newTask);
+    localStorage.setItem("taskItems", JSON.stringify(taskList));
     closeTaskCreator();
     generateTaskCards();
 }
@@ -116,6 +118,7 @@ function updateTaskCard() {
         task.deadline = $taskDeadline.value;
         task.column = $categoryId.value;
     }
+    localStorage.setItem("taskItems", JSON.stringify(taskList));
     closeTaskCreator();
     generateTaskCards();
 }
@@ -123,6 +126,7 @@ function updateTaskCard() {
 
 function removeTaskCard(taskId) {
     taskList.splice(taskList.findIndex(task => task.id === taskId), 1);
+    localStorage.setItem("taskItems", JSON.stringify(taskList));
     generateTaskCards();
 }
 
@@ -131,6 +135,7 @@ function changeColumn(taskId, columnId) {
     const task = taskList.find(task => task.id === taskId);  
     if (task) {
         task.column = columnId;
+        localStorage.setItem("taskItems", JSON.stringify(taskList));
         generateTaskCards();
     }
 }
