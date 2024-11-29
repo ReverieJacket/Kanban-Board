@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             localStorage.removeItem("userId");
             localStorage.removeItem("sessionToken");
-            window.location.href = "./telaLogin.html";
+            window.location.href = "./login.html";
 
         } catch (error) {
             console.error("Ocorreu um erro no logout: ", error);
