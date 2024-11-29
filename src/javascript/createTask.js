@@ -35,6 +35,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     "iso": dueBy
                 },
                 Progress: progress,
+                "Owner": {
+                    "__type": "Pointer",
+                    "className": "_User",
+                    "objectId": localStorage.getItem("userId")
+                }
             }),
         });
 
@@ -48,52 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const data = await response.json();
         console.log("Tarefa criada com sucesso: ", data);
 
-        await associateToUser(data.objectId);
-
         } catch (error) {
             console.error("Ocorreu um erro na criação da tarefa: ", error);
-            alert("Erro de conexão. Tente novamente.");
-        }
-    }
-
-    async function associateToUser(taskId) {
-        const userId = localStorage.getItem("userId");
-
-        const data = {
-            "UserTasks": {
-                "__op": "AddRelation",
-                "objects": [{
-                    "__type": "Pointer",
-                    "className": "Task",
-                    "objectId": taskId
-                }]
-            }
-        };
-
-        try {
-            const response = await fetch(`https://parseapi.back4app.com/users/${userId}`, {
-                method: "PUT",
-                headers: {
-                    "X-Parse-Application-Id": "nTNAn75SWRXgRMkgwDuPLXPmQNwnElUqeUSJbMwk",
-                    "X-Parse-REST-API-Key": "kW7x86ZmUXka8yN5fLfZkKPmFiVaIW9rG1fllVWW",
-                    "X-Parse-Session-Token": localStorage.getItem("sessionToken"),
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (!response.ok) {
-                const error = await response.json();
-                console.error("Erro na associação: ", error);
-                alert("Erro ao associar a tarefa: " + error.error);
-                return;
-            }
-
-            const taskData = await response.json();
-            console.log("Tarefa associada ao usuário com sucesso: ", taskData);
-            alert("Tarefa associada ao usuário com sucesso!");
-        } catch (error) {
-            console.error("Ocorreu um erro na associação da tarefa: ", error);
             alert("Erro de conexão. Tente novamente.");
         }
     }

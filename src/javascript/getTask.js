@@ -1,18 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const url = "https://parseapi.back4app.com/classes/Task";
+    const headers = {
+      "X-Parse-Application-Id": "nTNAn75SWRXgRMkgwDuPLXPmQNwnElUqeUSJbMwk",
+      "X-Parse-REST-API-Key": "kW7x86ZmUXka8yN5fLfZkKPmFiVaIW9rG1fllVWW",
+      "Content-Type": "application/json",
+    };
 
-
-    async function getListaTarefas() {
-      const response = await fetch(tarefaURL, {
-        method: "GET",
-        headers: headers,
-      });
-      console.log("response", response);
-      if (!response.ok) {
-        alert("Erro ao acessar o back-end!");
-        return;
-      }
-      const data = await response.json();
-      console.log("data", data);
-      return data.results;
+    fetch(url, { headers })
+        .then((response) => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
     }
+        return response.json();
+    })
+    .then((data) => {
+        console.log("Response data:", data);
+    })
+    .catch((error) => {
+        console.error("Error fetching tasks:", error);
+    });
 });
