@@ -41,7 +41,7 @@ body{
     padding: 30px 0;
 }
 
-.navbar .logout-btn {
+.logout-btn {
     background-color: #4c8aff;
     color: white;
     border: none;
@@ -52,7 +52,7 @@ body{
     transition: background-color 0.3s;
 }
 
-.navbar .logout-btn:hover {
+.logout-btn:hover {
     background-color: #3676e3;
 }
 
