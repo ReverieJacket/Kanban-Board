@@ -48,7 +48,7 @@ body {
 .hero-section {
     flex: 1;
     display: flex;
-    ustify-content: center;
+    justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
@@ -64,7 +64,7 @@ body {
 }
 
 .hero-content p {
-    font-size: 1.2jrem;
+    font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
