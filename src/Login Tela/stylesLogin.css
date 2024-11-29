@@ -1,0 +1,104 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4b0082, #8a2be2, #1e90ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+  }
+  
+  /* Container do login */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  /* Caixa de login */
+  .login-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+  }
+  
+  .login-box h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+/* Input de texto */
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box; 
+  }
+  
+  
+  .input-group input::placeholder {
+    color: #ddd;
+  }
+  
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(90deg, #8a2be2, #1e90ff);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(90deg, #1e90ff, #8a2be2);
+  }
+
+  .register-button {
+    display: inline-block;
+    background-color: #6200EE; /* Roxo */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #3700B3; /* Roxo mais escuro */
+}
+  
