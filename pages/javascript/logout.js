@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             localStorage.removeItem("userId");
             localStorage.removeItem("sessionToken");
+            sessionStorage.clear();
             window.location.href = "../index.html";
         } catch (error) {
             console.error("Ocorreu um erro no logout: ", error);
