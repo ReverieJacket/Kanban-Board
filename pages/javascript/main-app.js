@@ -19,12 +19,8 @@ const headers = {
 };
 
 getTasks();
-const aux = sessionStorage.getItem("taskItems");
-if(aux) {
-    const tasks = JSON.parse(aux);
-    tasks.forEach(task => taskList.push(task));
-    generateTaskCards();
-}
+generateTaskCards();
+
 
 function toggleTaskCreator(isEditMode) {
     $taskCreator.style.display = "flex";
@@ -71,7 +67,7 @@ function resetColumns() {
     });
 }
 
-async function generateTaskCards() {
+function generateTaskCards() {
     resetColumns();
 
     taskList.forEach(task => {
@@ -93,6 +89,7 @@ async function generateTaskCards() {
             </div>
         `;
         columnBody.innerHTML += card;
+
     });
 }
 
@@ -115,7 +112,9 @@ async function getTasks() {
         deadline: task.DueBy,
         column: task.Progress
     }))
+    filter.forEach(task => taskList.push(task));
     sessionStorage.setItem("taskItems", JSON.stringify(filter));
+    generateTaskCards();
 }
 
 async function createTaskCard() {
