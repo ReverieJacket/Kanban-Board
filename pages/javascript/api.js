@@ -59,8 +59,8 @@ function syncWithBack4App(event) {
     fetch('https://parseapi.back4app.com/classes/Event', {
         method: 'POST',
         headers: {
-            'X-Parse-Application-Id': 'X-Parse-Application-Id": "nTNAn75SWRXgRMkgwDuPLXPmQNwnElUqeUSJbMwk', // Substitua com seu ID do Back4App
-            'X-Parse-REST-API-Key': 'X-Parse-REST-API-Key": "kW7x86ZmUXka8yN5fLfZkKPmFiVaIW9rG1fllVWW', // Substitua com sua chave de API do Back4App
+            'X-Parse-Application-Id': 'X-Parse-Application-Id": "nTNAn75SWRXgRMkgwDuPLXPmQNwnElUqeUSJbMwk', // ID do Back4App 
+            'X-Parse-REST-API-Key': 'X-Parse-REST-API-Key": "kW7x86ZmUXka8yN5fLfZkKPmFiVaIW9rG1fllVWW', // chave de API do Back4App
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(eventData)
